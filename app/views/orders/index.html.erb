@@ -1,0 +1,22 @@
+<div class='main-content'>
+
+<table>
+	<tr>
+		<th>Item</th>
+		<th>Quantity</th>
+		<th>Buyer</th>
+		<th>Status</th>
+	</tr>
+
+	<% @orders.each do |order| %>
+		<tr>
+			<td><%= order.inventory.item_name %></td>
+			<td><%= order.quantity %></td>
+			<td><%= order.user.name %></td>
+			<td><%= order.status %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p><%= link_to 'Buy More', root_path %></p>
+</div>

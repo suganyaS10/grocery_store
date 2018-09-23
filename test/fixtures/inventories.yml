@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_name: MyString
+  category: MyString
+  quantity_available: 1
+  unit: MyString
+  cost_per_unit: 1
+
+two:
+  item_name: MyString
+  category: MyString
+  quantity_available: 1
+  unit: MyString
+  cost_per_unit: 1

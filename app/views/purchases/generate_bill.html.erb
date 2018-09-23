@@ -1,0 +1,32 @@
+
+<% if @detailed_bill_hash.present? %>
+
+	<table class="bill">
+		<tr>
+			<th>Item</th>
+			<th>Quantity</th>
+			<th>Unit price</th>
+			<th>Price</th>
+		</tr>
+	  
+	  <% @detailed_bill_hash[:bill_items].each do |item| %>
+			<tr>
+				<td><%= item[:item_name] %></td>
+				<td><%= item[:quantity] %></td>
+				<td><%= item[:unit_price] %></td>
+				<td><%= item[:item_price] %></td>
+			</tr>
+		<% end %>
+
+		<tr>
+			<td></td>
+			<td>Total Amount</td>
+			<td></td>
+			<td><%= @detailed_bill_hash[:total_amount] %></td>
+	</table>
+
+	<%= link_to 'Pay Bill', pay_bill_purchase_path(id: @detailed_bill_hash[:purchase].id) %>
+
+<% end %>
+
+

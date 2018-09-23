@@ -1,0 +1,36 @@
+<div class='main-content'>
+
+<div class="grid-container">
+
+  <% @inventories.each do |inventory| %>
+    <div class="grid-item" data-item-name="<%=inventory.item_name%>" data-maxquantity="<%=inventory.quantity_available%>">
+      
+      <p class="grid-p">Item: <%= inventory.item_name %></p>
+      <p class="grid-p">Categeory: <%= inventory.category %></p>
+      <p class="grid-p avail-quan">Available: <%= inventory.quantity_available %> <%= inventory.unit %></p><p class="hide avail-quan"><%= inventory.quantity_available %></p>
+      <p class="grid-p"><%= inventory.cost_per_unit %></p>
+      <p class="grid-p"><%= link_to 'Show', inventory %></p>
+      <% if can? :edit, @inventory %>
+      <% end %>  
+
+      <% if @user_role == Role::ADMIN %> 
+        <p class="grid-p"><%= link_to 'Edit', edit_inventory_path(inventory) %></p>
+ 
+        <p class="grid-p"><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% end %>
+
+      <% if @user_role == Role::SHOPPER %>
+        <p class="grid-p""><button class='add-to-cart'>Add to Cart</button>
+        Quantity:    <input type="number" class="quantity" name="quantity" min="1" max="<%= inventory.quantity_available%>"><br>
+        </p>
+      <% end %> 
+    </div>  
+    <% end %>
+</div>
+
+
+<% if @user_role == Role::SHOPPER %>
+  <%= link_to 'Place Order', generate_bill_purchases_path, class: 'action-btn' %>
+<% end %>
+</div>
+

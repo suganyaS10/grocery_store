@@ -1,0 +1,32 @@
+<div class='main-content'>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item name:</strong>
+  <%= @inventory.item_name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @inventory.category %>
+</p>
+
+<p>
+  <strong>Quantity available:</strong>
+  <%= @inventory.quantity_available %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @inventory.unit %>
+</p>
+
+<p>
+  <strong>Cost per unit:</strong>
+  <%= @inventory.cost_per_unit %>
+</p>
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>
+</div>

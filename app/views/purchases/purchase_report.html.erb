@@ -1,0 +1,10 @@
+      <div class='main-content'>
+
+            <%= form_tag "/purchases/generate_purchase_report" do %>
+              <%= date_field_tag 'from', Date.today %>
+              <%= date_field_tag 'to', Date.today %>
+
+              <%= submit_tag 'Generate Purchase report' %>
+            <% end %>
+
+          </div>

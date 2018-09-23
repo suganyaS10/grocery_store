@@ -1,0 +1,20 @@
+
+
+<table>
+	<tr>
+		<td><%= @purchase.bill_code %></td>
+		<td><%= @purchase.total_amount %></td>
+	</tr>
+
+</table>
+
+<% if @response[:status] == 'success' %>
+	<div class="success">
+<% else %>
+	<div class="failure">
+<% end %>
+
+<p><%= @response[:message] %></p>
+
+<p><%= link_to 'Buy More', root_path %></p>
+</div>

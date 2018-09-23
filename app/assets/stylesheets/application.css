@@ -1,0 +1,178 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+html,body{
+	height: 100%;
+	margin: 0;
+	font-family: Rubik,sans-serif;
+	width: 100%;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.zero-margin{
+	margin: 0;
+}
+.pointer-cursor{
+	cursor: pointer;
+}
+.hide{
+	display: none !important;
+}
+.show{
+	display: inline-block !important;
+}
+header{
+	background: #ffffff;
+	height: 6%;
+}
+.left-header{
+	width: 40%;
+	height: 100%;
+}
+.right-header{
+	width: 30%;
+}
+.right-header ul{
+
+}
+.right-header li{
+	list-style: none;
+  display: inline-block;
+  padding-right: 10px;
+}
+.logo img{
+	height: 40px;
+	width: 80px;
+}
+.action-btn{
+	display: inline-block;
+  background: green;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+}
+
+.main-content{
+	  float: right;
+    width: 80%;
+}
+
+/*=====================ERROR STYLES==================*/
+.error-field{
+	outline: red;
+	border: 1px solid red;
+}
+
+
+/*==============DEVISE FORM DESIGN==========================*/
+.user-session-backdrop{
+	height: 500px;
+	background: url(search.jpg);
+	background-size: cover;
+}
+.user-session-layout{
+	width: 40%;
+	margin: 0 auto;
+	margin-top: -420px;
+}
+.user-session-layout form{
+	padding: 20px;
+}
+.user-session-layout form .field input {
+	height: 20px;
+	width: 300px;
+}
+.devise-link-btn-div{
+	height: 80px;
+}
+.banner-btn{
+	display: inline-block;
+  background: #ED0044;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+}
+
+.grid-container{
+	display: grid;	
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  margin: 0 auto;
+}
+.grid-item{
+	border: 1px solid green;
+  padding: 5px;
+  margin: 2px;
+}
+.grid-title{
+	text-align: center;
+}
+.grid-booking{
+  background-color: red;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+
+.sidenav{
+	background: green;
+	width: 200px;
+	height: 92%;
+	float: left;
+	margin-top: 30px;
+}
+.sidenav ul{
+	margin: 15px 0 0 0;
+	padding: 0;
+}
+.sidenav li{
+  list-style: none;
+  width: 100%;
+  position: relative;
+  display: block;
+}
+.sidenav li>a{
+	text-decoration: none;
+	color: white;
+	width: 90%;
+	display: table;
+	position: relative;
+	padding: 10px;
+
+}
+.sidenav a:hover{
+	background: white;
+	color: green;
+}
+.nav-image{
+	display: table-cell;
+	height: 20px;
+	width: 20px;
+	padding: 10px;
+	position: relative;
+	vertical-align: middle;
+}
+.nav-text{
+	display: table-cell;
+	vertical-align: middle;
+
+}

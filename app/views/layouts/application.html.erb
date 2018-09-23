@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GroceryStore</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  	<header class="zero-margin">
+  		<div class="left left-header">
+        <nav class="horizontal-nav">
+          <ul class="horizontal-nav-ul zero-margin">
+            <li class="logo"><%= image_tag('logo.png') %></li>
+          </ul>
+        </nav>
+      </div>
+
+  		<div class="right right-header">
+        <ul class="header-right-ul zero-margin">
+          <% if current_user %>
+            <li class="header-right-li pointer-cursor" style="cursor: default"><%= current_user.name %></li>
+            <li class="header-right-li">
+              <a href="#">
+                <span class="nav-text">My Profile</span>
+              </a>
+            </li>
+
+            <% if current_user && current_user.admin? %>
+              <li class="header-right-li">
+                <a href="<%= orders_path %>">
+                  <span class="nav-text">All Orders</span>
+                </a>
+              </li> 
+            <% elsif current_user %>
+              <li class="header-right-li">
+                <a href="<%= %>">
+                  <span class="nav-text"><%= link_to 'My Orders', orders_path(user_id: current_user.id) %></span>
+                </a>
+              </li>
+            <% end %>
+
+            <li class="header-right-li pointer-cursor"><%= link_to 'Log Out',destroy_user_session_path, :method => :delete %></li>
+
+          <% else %>
+            <li class="header-right-li">
+              <a href="<%= new_user_registration_path %>">
+                <span class="nav-text">Sign Up</span>
+              </a>
+            </li>
+
+            <li class="header-right-li">
+              <a href="<%= new_user_session_path %>">
+                <span class="nav-text">Log In</span>
+              </a>
+            </li>
+
+          <% end %>
+          <li>
+        </ul>
+  		</div>
+  	</header>
+
+  	<div class="content">
+
+      <% if flash[:error] %>
+        <div class="notification is-primary global-notification close-soon">
+          <p class="notice"><%= flash[:error] %></p>
+        </div>
+      <% end %>
+
+      <% if flash[:success] %>
+        <div class="success close-soon">
+          <p class="success-notice"><%= flash[:success] %></p>
+        </div>
+      <% end %>
+       
+      <% if current_user && current_user.role.name == Role::ADMIN %>
+      <div class="side-nav">
+        
+        <div class="admin-panel">
+          
+          <nav class="sidenav">
+            <ul class="sidenav-ul">
+
+              <li class="sidenav-li">
+                <a href="<%= root_path %>">
+                <span class="nav-text">Home</span></a>
+              </li>
+
+              <li class="sidenav-li">
+                <a href="<%= new_inventory_path %>">
+                <span class="nav-text">Add Inventory</span></a>
+              </li>
+             
+              <li class="sidenav-li">
+                <a href="<%= purchase_report_purchases_path %>">
+                  <span class="nav-text">Purchase Report</span></a>
+              </li>
+              
+              <li class="sidenav-li">
+                <a href="<%= stock_report_inventories_path %>">
+                 <span class="nav-text">Inventory Report</span></a>
+              </li>
+
+              <li class="sidenav-li">
+                <a href="<%= discounts_path %>">
+                 <span class="nav-text">Discounts</span></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <% end %>
+
+    <%= yield %>
+  </div>
+  
+
+  </body>
+</html>

@@ -1,0 +1,27 @@
+
+<div class='main-content'>
+
+
+<table>
+	<tr>
+		<th>Bill Code</th>
+		<th>Status</th>
+		<th>Amount</th>
+	</tr>
+  
+  <% @purchases_hash[:purchases].each do |purchase| %>
+		<tr>
+			<td><%= purchase.bill_code %></td>
+			<td><%= purchase.status %></td>
+			<td><%= purchase.total_amount %></td>
+		</tr>
+  <% end %>
+
+	<tr>
+		<td></td>
+		<td>Total</td>
+		<td><%= @purchases_hash[:total] %></td>
+	</tr>	
+
+</table>
+</div>

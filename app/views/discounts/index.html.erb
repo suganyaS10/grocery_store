@@ -1,0 +1,24 @@
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th>Discount Object</th>
+		<th>Discount Field</th>
+		<th>Discount Condition</th>
+		<th>Value</th>
+	</tr>
+
+	<% @discounts.each do |discount| %>
+		<tr>
+			<td><%= discount.name %></td>
+			<td><%= discount.entity.class %></td>
+			<td><%= discount.entity.name %></td>
+			<td><%= discount.discount_field %></td>
+			<td><%= discount.discount_condition %></td>
+			<td><%= discount.value %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p><%= link_to 'Add Discount', new_discount_path %></p>
+<p><%= link_to 'Buy More', root_path %></p>
